@@ -6,7 +6,7 @@ finalhtml = '''
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZ 305 Dumps</title>
+    <title>AZ 304 Dumps</title>
         <!-- deflink == defered link (loaded later by jquery) -->
     <!-- bootstrap v4 css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,8 +16,8 @@ finalhtml = '''
     
 '''
 question_count = 1
-for i in range(1, 16):
-    with open(f'Templates/AZ-305 Exam – Free Actual Q&As, Page {i} _ ExamTopics.html', encoding='utf8') as f:
+for i in range(1, 49):
+    with open(f'Templates/AZ-304 Exam – Free Actual Q&As, Page {i} _ ExamTopics.html', encoding='utf8') as f:
         content = f.read()
         soup = BeautifulSoup(content, features='html.parser')
         for ele in soup.find_all('div', {'class': 'questions-container'}):
@@ -28,7 +28,7 @@ for i in range(1, 16):
             for remove in ele.find_all('a', {'class': ['question-discussion-button']}):
                 remove['href'] = '#'
             for img in ele.find_all('img', {'class': 'in-exam-image'}):
-                src = 'https://examtopics.com/assets/media/exam-media/04082/' + \
+                src = 'https://examtopics.com/assets/media/exam-media/04027/' + \
                     img['src'].split('/')[-1]
                 img['src'] = src
             finalhtml += ele.prettify()+'<br/>'
